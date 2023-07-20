@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { projectListApi } from '@/api/project.api'
 import AuthProvider from '@/views/pages/authentication/AuthProvider.vue'
 import logo from '@images/logo.svg?raw'
 
@@ -9,6 +10,16 @@ const form = ref({
 })
 
 const isPasswordVisible = ref(false)
+
+const login = {
+  loginId: 1,
+  loginName: 'kai',
+  passwd: 'admin',
+}
+
+projectListApi(login).then(res => {
+  console.log(res)
+})
 </script>
 
 <template>
